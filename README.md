@@ -1,5 +1,4 @@
-
-# Vihula Veeb – Laravel + Vue + Tailwind projekt
+# Vihula Tuulik – Laravel + Vue + Tailwind projekt
 
 See projekt on üles ehitatud Laraveliga ja kasutab Vue.js ning Tailwind CSS-i.  
 Adminpaneel töötab Backpacki abil. Andmebaas ei ole kasutusel – kogu info hallatakse Laravel + Backpack kaudu.
@@ -19,7 +18,7 @@ Adminpaneel töötab Backpacki abil. Andmebaas ei ole kasutusel – kogu info ha
 
 ## 📦 Vajalikud sõltuvused
 
-Kui kloonid projekti esimest korda, installi esmalt kõik dependencies.
+Kui kloonid projekti esimest korda, installi esmalt kõik sõltuvused:
 
 ### PHP (Laravel):
 ```bash
@@ -119,6 +118,11 @@ Valik "Kõik" kuvab kõik tooted.
 
 ## 🧪 Kasulikud käsud
 
+- Laravel link piltidele:
+  ```bash
+  php artisan storage:link
+  ```
+
 - Käivita server:
   ```bash
   php artisan serve
@@ -134,11 +138,32 @@ Valik "Kõik" kuvab kõik tooted.
 ## 📁 Kaustastruktuur (oluline teada)
 
 - Vue vaated: `resources/js/views`
-- Laetavad toote pildid: `storage/app/public/`
+- Avalikud pildid (nt logo): `public/`
+- Laetavad toote pildid: `storage/app/public/uploads`
 
 ---
 
 ## 📌 Märkused
 
-- Kui tekib probleeme piltide salvestamisel, kontrolli faili suurust ja laiendit (max 2mb)
+- Kui tekib probleeme piltide salvestamisel, kontrolli faili suurust ja laiendit
 - Tekstide muutmiseks kasuta Vue faile või adminpaneeli, olenevalt sisust
+
+---
+
+## 💬 Valitud keele põhjendus: PHP (Laravel)
+
+Valisin PHP ja Laraveli, kuna need sobivad hästi väiksemate ja keskmise suurusega projektide jaoks, kus on vaja kiiret arendust, head dokumentatsiooni ning tugevat kogukonda.
+
+**Eelised:**
+- Laravelil on elegantne süntaks ja sisseehitatud tööriistad (routing, valideerimine, autentimine).
+- Backpack võimaldab kiiresti ehitada adminpaneeli ilma palju koodi kirjutamata.
+- Palju õpetusi ja kogukonna tuge – eriti oluline, kui tuleb kiiresti lahendusi leida.
+- Ei vaja eraldi keerukat serveriseadistust – saab käivitada lihtsasti lokaalselt.
+
+**Miinused:**
+- PHP on üldiselt aeglasem kui näiteks Node.js või Go suure koormuse korral.
+- Vue ja Laravel integreerimine nõuab build-süsteemi (nt Vite), mis võib olla algajatele keeruline.
+- Laravel eeldab, et arendajal on hea arusaam serveripoolsest loogikast ja struktuurist.
+
+Kokkuvõttes sobib Laravel + PHP ideaalselt Vihula Tuuliku projekti jaoks, kus eesmärgiks on funktsionaalne ja visuaalselt meeldiv veebilahendus, mille adminpaneeli saab kasutada ka mittetehniline kasutaja.
+
