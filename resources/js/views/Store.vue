@@ -29,10 +29,10 @@
         <div class="bg-beez rounded-2xl">
           <select v-model="selectedCategory" class="w-full p-4 text-slate-800 rounded-2xl">
             <option value="Kõik">Kõik</option>
-            <option>Savinõud</option>
-            <option>Postkaardid</option>
-            <option>Magnetid</option>
-            <option>Riided</option>
+            <option value="savinõud">Savinõud</option>
+            <option value="postkaardid">Postkaardid</option>
+            <option value="magnetid">Magnetid</option>
+            <option value="riided">Riided</option>
           </select>
         </div>
       </div>
@@ -78,36 +78,41 @@ export default {
   },
   computed: {
     filteredItems() {
-      let result = [...this.items];
+  let result = [...this.items];
 
-      if (this.selectedCategory !== 'Kõik') {
-        result = result.filter(item => item.category?.toLowerCase() === this.selectedCategory.toLowerCase());
-      }
+  if (this.selectedCategory !== 'Kõik') {
+    result = result.filter(item => {
+      const itemCategory = (item.category || '').toLowerCase().trim();
+      return itemCategory === this.selectedCategory;
+    });
+  }
 
-      if (this.sortOrder === 'asc') {
-        result.sort((a, b) => a.price - b.price);
-      } else {
-        result.sort((a, b) => b.price - a.price);
-      }
+  result.sort((a, b) =>
+    this.sortOrder === 'asc' ? a.price - b.price : b.price - a.price
+  );
 
-      return result;
-    },
+  return result;
+}
+
+
   },
   methods: {
     getFirstImage(imageField) {
       try {
         const images = JSON.parse(imageField);
-        return Array.isArray(images) && images.length > 0 ? '/' + images[0] : '/placeholder.jpg';
+        const file = Array.isArray(images) && images.length > 0 ? images[0] : null;
+        return file ? `/storage/${file.replace(/^uploads[\\/]/, '')}` : '/placeholder.jpg';
       } catch {
         return '/placeholder.jpg';
       }
-    }
+    },
   },
   mounted() {
     fetch('/api/products')
       .then(res => res.json())
       .then(data => {
         this.items = data;
+         console.log(this.items);
       })
       .catch(err => {
         console.error('Failed to fetch products:', err);
