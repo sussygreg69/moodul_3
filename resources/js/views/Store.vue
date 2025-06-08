@@ -73,15 +73,15 @@ export default {
     return {
       selectedCategory: 'Kõik',
       sortOrder: 'desc',
-      items: [], // ← will be filled from API
+      items: [],
     };
   },
   computed: {
     filteredItems() {
-      let result = [...this.items]; // ← always copy before sorting
+      let result = [...this.items];
 
       if (this.selectedCategory !== 'Kõik') {
-        result = result.filter(item => item.category === this.selectedCategory);
+        result = result.filter(item => item.category?.toLowerCase() === this.selectedCategory.toLowerCase());
       }
 
       if (this.sortOrder === 'asc') {
@@ -93,18 +93,16 @@ export default {
       return result;
     },
   },
-
   methods: {
-  getFirstImage(imageField) {
-    try {
-      const images = JSON.parse(imageField);
-      return Array.isArray(images) && images.length > 0 ? images[0] : '/placeholder.jpg';
-    } catch {
-      return '/placeholder.jpg';
+    getFirstImage(imageField) {
+      try {
+        const images = JSON.parse(imageField);
+        return Array.isArray(images) && images.length > 0 ? '/' + images[0] : '/placeholder.jpg';
+      } catch {
+        return '/placeholder.jpg';
+      }
     }
-  }
-},
-
+  },
   mounted() {
     fetch('/api/products')
       .then(res => res.json())
@@ -116,6 +114,4 @@ export default {
       });
   }
 };
-
-
 </script>

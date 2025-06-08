@@ -74,6 +74,12 @@ class ProductCrudController extends CrudController
             'roosa' => 'Roosa',
             'sinine' => 'Sinine'
         ]);
+        CRUD::field('category')->type('select_from_array')->options([
+            'savinõud' => 'Savinõud',
+            'riided' => 'Riided',
+            'magnetid' => 'Magnetid',
+            'postkaardid' => 'Postkaardid'
+        ]);
         CRUD::field('image')->type('upload_multiple')->disk('public')->withFiles(true);
 
         /**

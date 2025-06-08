@@ -71,32 +71,32 @@
           <div>
             <p class="font-quiche border-b-2 text-xl">Avaleht</p>
             <ul class="mt-3 space-y-4 text-sm">
-              <li><a href="#" class="hover:opacity-75">Ajalugu</a></li>
-              <li><a href="#" class="hover:opacity-75">Tuntud näod</a></li>
-              <li><a href="#" class="hover:opacity-75">Tegevuste ajakava</a></li>
-              <li><a href="#" class="hover:opacity-75">Meened</a></li>
+              <li><a href="/" class="hover:opacity-75">Ajalugu</a></li>
+              <li><a href="/" class="hover:opacity-75">Tuntud näod</a></li>
+              <li><a href="/" class="hover:opacity-75">Tegevuste ajakava</a></li>
+              <li><a href="/" class="hover:opacity-75">Meened</a></li>
             </ul>
           </div>
 
           <div>
             <p class="font-quiche border-b-2 text-xl">E - Pood</p>
             <ul class="mt-3 space-y-4 text-sm">
-              <li><a href="#" class="hover:opacity-75">Tooted</a></li>
-              <li><a href="#" class="hover:opacity-75">Kategooriad</a></li>
+              <li><a href="/store" class="hover:opacity-75">Tooted</a></li>
+              <li><a href="/store" class="hover:opacity-75">Kategooriad</a></li>
             </ul>
           </div>
 
           <div>
             <p class="font-quiche border-b-2 text-xl">Kontaktid</p>
             <ul class="mt-3 space-y-4 text-sm">
-              <li><a href="#" class="hover:opacity-75">Kirjuta meile!</a></li>
+              <li><a href="/contact" class="hover:opacity-75">Kirjuta meile!</a></li>
             </ul>
           </div>
 
           <div>
             <p class="font-quiche border-b-2 text-xl">Annetused</p>
             <ul class="mt-3 space-y-4 text-sm">
-              <li><a href="#" class="hover:opacity-75">Info</a></li>
+              <li><a href="/donation" class="hover:opacity-75">Info</a></li>
             </ul>
           </div>
         </div>

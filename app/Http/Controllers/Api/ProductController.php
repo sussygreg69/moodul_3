@@ -26,6 +26,7 @@ class ProductController extends Controller
         'description' => 'nullable|string',
         'size' => 'nullable|string',
         'color' => 'nullable|string',
+        'category' => 'nullable|string',
         'image' => 'nullable|image|max:2048',
     ]);
 

@@ -10,6 +10,6 @@ class Contact extends Model
 {
     use CrudTrait;
 
-    protected $fillable = ['name', 'price', 'description', 'image', 'color', 'size'];
+    protected $fillable = ['name', 'email', 'subject', 'message'];
 }
 

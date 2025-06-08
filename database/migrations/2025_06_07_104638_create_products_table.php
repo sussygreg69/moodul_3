@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('color');
             $table->text('size');
+            $table->text('category');
             $table->string('image');
             $table->timestamps();
         });
