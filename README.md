@@ -2,7 +2,34 @@
 # Vihula Veeb – Laravel + Vue + Tailwind projekt
 
 See projekt on üles ehitatud Laraveliga ja kasutab Vue.js ning Tailwind CSS-i.  
-Adminpaneel töötab Backpacki abil.
+Adminpaneel töötab Backpacki abil. Andmebaas ei ole kasutusel – kogu info hallatakse Laravel + Backpack kaudu.
+
+---
+
+## ⚙️ Kasutatud tehnoloogiad
+
+- **PHP 8+** – serveripoolne keel
+- **Laravel 10** – backend ja API
+- **Vue 3** – frontend SPA (Single Page Application)
+- **Tailwind CSS** – stiilid ja kujundus
+- **Vite** – kiire arendusserver ja build-süsteem
+- **Backpack for Laravel** – adminpaneel
+
+---
+
+## 📦 Vajalikud sõltuvused
+
+Kui kloonid projekti esimest korda, installi esmalt kõik dependencies.
+
+### PHP (Laravel):
+```bash
+composer install
+```
+
+### JavaScript (Vue ja Vite):
+```bash
+npm install
+```
 
 ---
 
@@ -41,12 +68,24 @@ Logi sisse kehtivate kasutajaandmetega.
 
 ---
 
+### ✏️ Administreerimisliidese funktsioonid
+
+Adminpaneelis saad:
+
+- **Lisada, muuta ja kustutada tooteid** (Products)
+- **Vaadata kontaktivormi kaudu saadetud sõnumeid** (nt Contact submissions)
+
+❗ Lehtede sisu (nt “Meist”, “Kontakt”, “Annetused”) tuleb muuta otse koodist Vue komponentide kaudu:  
+`resources/js/views/*.vue`
+
+---
+
 ## 📝 Sisu muutmine
 
-1. Ava adminpaneelis **Pages** või **Lehed**.
-2. Vali leht, mida soovid muuta (nt *Meist*, *Kontakt*).
-3. Tee muudatused tekstides või sisus.
-4. Vajuta **Salvesta**.
+1. Ava fail `resources/js/views`.
+2. Vali fail, mille kaudu soovid lehe sisu muuta (nt `Contact.vue`, `Donation.vue`).
+3. Tee muudatused ja salvesta.
+4. Veendu, et arendusserver töötab (`npm run dev`) ja leht laeb sisu korrektselt.
 
 ---
 
@@ -64,28 +103,10 @@ Logi sisse kehtivate kasutajaandmetega.
 
 ---
 
-## 🖼 Piltide kuvamine
-
-Pildid salvestatakse `storage/app/public/uploads` kausta.  
-Et need veebis nähtavaks teha:
-
-```bash
-php artisan storage:link
-```
-
-Pildid muutuvad kättesaadavaks lingi kaudu:
-```
-/storage/uploads/filename.jpg
-```
-
-Vue komponentides kasutatakse pildi kuvamiseks funktsiooni, mis võtab JSON-failinime ja teisendab selle õigeks URL-iks.
-
----
-
 ## 🔍 Filtri- ja sorteerimissüsteem e-poes
 
 Lehel `/store` on võimalik filtreerida tooteid kategooria alusel ning sorteerida hinna järgi.  
-Filtri valikud peavad vastama andmebaasis olevatele `category` väärtustele:
+Filtri valikud peavad vastama salvestatud `category` väärtustele:
 
 - `riided`
 - `magnetid`
@@ -97,11 +118,6 @@ Valik "Kõik" kuvab kõik tooted.
 ---
 
 ## 🧪 Kasulikud käsud
-
-- Laravel link piltidele:
-  ```bash
-  php artisan storage:link
-  ```
 
 - Käivita server:
   ```bash
@@ -118,13 +134,11 @@ Valik "Kõik" kuvab kõik tooted.
 ## 📁 Kaustastruktuur (oluline teada)
 
 - Vue vaated: `resources/js/views`
-- Avalikud pildid (nt logo): `public/`
-- Laetavad toote pildid: `storage/app/public/uploads`
+- Laetavad toote pildid: `storage/app/public/`
 
 ---
 
 ## 📌 Märkused
 
-- Projekt töötab SQLite andmebaasiga (`database/database.sqlite`)
-- Kui tekib probleeme piltide salvestamisel, kontrolli faili suurust ja laiendit
-- Kõik tekstid on hallatavad läbi adminpaneeli või Vue komponentide kaudu
+- Kui tekib probleeme piltide salvestamisel, kontrolli faili suurust ja laiendit (max 2mb)
+- Tekstide muutmiseks kasuta Vue faile või adminpaneeli, olenevalt sisust
