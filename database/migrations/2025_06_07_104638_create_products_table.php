@@ -18,16 +18,8 @@ return new class extends Migration
             $table->text('description');
             $table->text('color');
             $table->text('size');
-            $table->text('image');
+            $table->string('image');
             $table->timestamps();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('products');
     }
 };

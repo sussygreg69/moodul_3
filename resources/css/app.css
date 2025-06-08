@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Quiche;
+  src: url("../fonts/fonnts.com-Quiche_Display_Medium.woff2");
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/poppins-light-webfont.woff2");
+}
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -6,6 +15,16 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --color-roheline: #50B498;
+  --color-beez: #FFF5E0;
+  --color-sinine: #141E46;
+  --color-hele-roheline: #9CDBA6;
+}
+
+@theme{
+  --font-quiche: Quiche, "sans-serif";
+}
+
+@theme{
+  --font-poppins: Poppins, "sans-serif";
 }

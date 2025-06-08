@@ -74,7 +74,8 @@ class ProductCrudController extends CrudController
             'roosa' => 'Roosa',
             'sinine' => 'Sinine'
         ]);
-        CRUD::field('image')->type('upload_multiple')->withFiles(true);
+        CRUD::field('image')->type('upload_multiple')->disk('public')->withFiles(true);
+
         /**
          * Fields can be defined using the fluent syntax:
          * - 

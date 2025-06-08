@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class Product extends Model
 {
-    use CrudTrait;
-    /** @use HasFactory<\Database\Factories\ProductFactory> */
-    use HasFactory;
+    use CrudTrait; // ✅ Needed for Backpack
 
-    protected $fillable = ['name', 'price', 'description', 'color', 'size', 'image'];
+    protected $fillable = ['name', 'price', 'description', 'image', 'color', 'size'];
+
+    // protected $casts = [
+    //     'image' => 'string', // Optional if it's already being saved as a string
+    // ];
 }
